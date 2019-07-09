@@ -70,19 +70,20 @@ export default memo(function PersistentDrawerLeft() {
   return (
     <>
       <List>
-        {Object.keys(todos).map(key => {
-          return (
-            <Item
-              key={todos[key].id}
-              id={key}
-              name={todos[key].name}
-              status={todos[key].status}
-              handleComplete={handleComplete}
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
-            />
-          );
-        })}
+        {todos &&
+          Object.keys(todos).map(key => {
+            return (
+              <Item
+                key={todos[key].id}
+                id={key}
+                name={todos[key].name}
+                status={todos[key].status}
+                handleComplete={handleComplete}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            );
+          })}
       </List>
       <Modal
         open={modal}
